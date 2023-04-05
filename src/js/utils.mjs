@@ -11,7 +11,7 @@ export function getLocalStorage(key) {
 }
 // save data to local storage
 export function setLocalStorage(key, data) {
-  localStorage.setItem(key, JSON.stringify(data));
+  localStorage.setItem(key, data);
 }
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
@@ -20,4 +20,24 @@ export function setClick(selector, callback) {
     callback();
   });
   qs(selector).addEventListener("click", callback);
+}
+
+export function headerLoader() {
+
+  const header = document.querySelector("header");
+
+  const template = `<div class="logo">
+  <img
+    src="../images/thefullreflexcamera_slr_camera_4626.ico"
+    alt="compact camera image for logo"
+  />
+  <a href="../index.html"> Image<span class="highlight">Filter</span></a>
+  </div>
+  <div class="uploadIcon">
+    <a href="../upload/index.html">
+      <img src="../images/-file-upload_90320.png" alt="Upload image" />
+    </a>
+  </div>`;
+
+  header.innerHTML = template;
 }

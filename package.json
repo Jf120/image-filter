@@ -1,7 +1,7 @@
 {
-  "name": "outside",
+  "name": "image-filter",
   "version": "2.0.0",
-  "description": "Boilerplate for WDD 330 SleepOutside project",
+  "description": "Template for my image filter app",
   "main": "main.js",
   "scripts": {
     "start": "vite",
@@ -10,7 +10,6 @@
     "lint": "eslint *.js src/**/*.js",
     "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
     "test": "jest"
-    
   },
   "author": "Shane Thompson",
   "license": "ISC",
@@ -33,5 +32,11 @@
     "last 3 opera versions",
     "last 3 ios_saf versions",
     "last 3 safari versions"
-  ]
+  ],
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.0",
+    "vite-plugin-fs": "^1.0.0-beta.6"
+  }
 }

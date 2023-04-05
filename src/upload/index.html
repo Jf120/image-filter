@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Filter | Upload</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="../js/upload.mjs" type="module"></script>
+  </head>
+  <body>
+    <header class="divider">
+    </header>
+    <main class="center">
+      <section class="upload">
+        <form>
+          <label for="image-upload">Choose an image to upload:</label>
+          <input
+            type="file"
+            id="image-upload"
+            name="image-upload"
+            accept="image/*"
+          />
+          <button type="button" id="upload-btn">Upload</button>
+        </form>
+        <div id="preview" style="width: 200px"></div>
+      </section>
+    </main>
+    <footer>&copy;NOT a real business</footer>
+  </body>
+</html>
