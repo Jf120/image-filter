@@ -34,6 +34,7 @@
     "last 3 safari versions"
   ],
   "dependencies": {
+    "canvas-filters": "^1.0.1",
     "crypto-js": "^4.1.1",
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.0",

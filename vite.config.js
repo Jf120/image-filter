@@ -10,7 +10,6 @@ export default defineConfig({
         main: resolve(__dirname, "src/index.html"),
         upload: resolve(__dirname, "src/upload/index.html"),
         gallery: resolve(__dirname, "src/gallery/index.html"),
-        filters: resolve(__dirname, "src/filters/index.html"),
       },
     },
   },

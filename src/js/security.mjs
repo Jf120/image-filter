@@ -24,9 +24,13 @@ export function checkPassword(password, hash) {
 
 export function logOut() {
     window.localStorage.removeItem("token");
-    location.replace("../index.html");
 }
 
 export function getToken() {
-    
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      alert("Please make sure to sign in first");
+      location.replace("../index.html");
+    }
 }

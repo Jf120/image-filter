@@ -10,14 +10,10 @@ export function signUpForm() {
     const hashed = hashPassword(password)
 
     const user = { name, email, hashed };
-    console.log(user.name);
-    console.log(user);
-    console.log(users);
 
-    if (!users[email] === user.email) {
-        users.push(user);
-        console.log(user);
-        console.log(users[email]);
+
+    if (!users[email]) {
+        users[user.email] = user;
         localStorage.setItem("token", hashed);
         localStorage.setItem("users", JSON.stringify(users));
         location.replace("../gallery/index.html");
@@ -49,7 +45,11 @@ export function signInForm() {
 
         if (checkPassword(password, hash)) {
             //redirect to page
+            localStorage.setItem("token", hash);
             location.replace("../gallery/index.html");
+        }
+        else {
+            alert("Incorrect Password");
         }
     }
 }

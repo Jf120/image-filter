@@ -27,17 +27,33 @@ export function headerLoader() {
   const header = document.querySelector("header");
 
   const template = `<div class="logo">
-  <img
-    src="../images/thefullreflexcamera_slr_camera_4626.ico"
-    alt="compact camera image for logo"
-  />
-  <a href="../index.html"> Image<span class="highlight">Filter</span></a>
+    <img
+      src="../images/thefullreflexcamera_slr_camera_4626.ico"
+      alt="compact camera image for logo"
+    />
+    <a href="#" onclick="goToPage()" Image<span class="highlight">Filter</span></a>
   </div>
-  <div class="uploadIcon">
-    <a href="../upload/index.html">
-      <img src="../images/-file-upload_90320.png" alt="Upload image" />
-    </a>
-  </div>`;
+  <section class="buttons">
+    <div class="uploadIcon">
+      <a href="../upload/index.html">
+        <img src="../images/-file-upload_90320.png" alt="Upload image" />
+      </a>
+    </div>
+    <div class="logOutIcon">
+      <a id="logOut" href="../index.html">
+        <img src="../images/logout_111063.ico" />
+      </a>
+    </div>
+  </section>
+  <script>
+  function goToPage() {
+    if (!localStorage.getItem("token")) {
+      window.location.href = "../index.html";
+    } else {
+      window.location.href = "../gallery/index.html";
+    }
+  }
+  </script>`;
 
   header.innerHTML = template;
 }

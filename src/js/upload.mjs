@@ -1,10 +1,17 @@
 import { headerLoader } from "./utils.mjs";
+import { logOut, getToken } from "./security.mjs";
 
 const inputFile = document.getElementById("image-upload");
 const uploadBtn = document.getElementById("upload-btn");
 const previewDiv = document.getElementById("preview");
 
 headerLoader();
+getToken();
+const logOutButton = document.getElementById("logOut");
+
+// Add an event listener to the "a" tag
+logOutButton.addEventListener("click", logOut);
+
 
 uploadBtn.addEventListener("click", () => {
     const file = inputFile.files[0];

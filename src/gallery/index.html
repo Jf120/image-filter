@@ -4,15 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Image Filter | Gallery</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../images/icons8-compact-camera-30.png"
+    />
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="../js/gallery.js" type="module"></script>
+    <script src="../js/gallery.mjs" type="module"></script>
   </head>
   <body>
-    <header class="divider">
-    </header>
-    <main class="divider">
+    <header class="divider"></header>
+    <main class="gallery-divider">
+      <section class="preview">
+        <canvas id="myCanvas"></canvas>
+      </section>
       <section class="image-list">
         <ul></ul>
+      </section>
+      <section class="filter-select">
+        <select id="filter-select">
+          <option value="none">No Filter</option>
+          <option value="sepia">Sepia Filter</option>
+          <option value="grayscale">Grayscale Filter</option>
+          <!-- Add more options here -->
+        </select>
       </section>
     </main>
     <footer>&copy;NOT a real business</footer>
