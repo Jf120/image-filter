@@ -31,7 +31,7 @@ export function headerLoader() {
       src="../images/thefullreflexcamera_slr_camera_4626.ico"
       alt="compact camera image for logo"
     />
-    <a href="#" onclick="goToPage()" Image<span class="highlight">Filter</span></a>
+    <a href="#" id="gotopage"> Image<span class="highlight">Filter</span></a>
   </div>
   <section class="buttons">
     <div class="uploadIcon">
@@ -44,16 +44,15 @@ export function headerLoader() {
         <img src="../images/logout_111063.ico" />
       </a>
     </div>
-  </section>
-  <script>
-  function goToPage() {
-    if (!localStorage.getItem("token")) {
-      window.location.href = "../index.html";
-    } else {
-      window.location.href = "../gallery/index.html";
-    }
-  }
-  </script>`;
+  </section>`;
 
   header.innerHTML = template;
+}
+
+export function goToPage() {
+  if (!localStorage.getItem("token")) {
+    window.location.href = "../index.html";
+  } else {
+    window.location.href = "../gallery/index.html";
+  }
 }

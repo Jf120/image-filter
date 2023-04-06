@@ -1,6 +1,5 @@
 import { headerLoader } from "./utils.mjs";
 import { logOut, getToken } from "./security.mjs";
-import ImageFilters from "canvas-filters";
 
 export function start() {
     document.querySelector(".filter-select").style.display = "block";

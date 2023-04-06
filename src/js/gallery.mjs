@@ -1,15 +1,19 @@
-import { headerLoader } from "./utils.mjs";
+import { headerLoader, goToPage } from "./utils.mjs";
 import { logOut, getToken } from "./security.mjs";
 import { start, applySepiaFilter, applyGrayscaleFilter } from "./filter.mjs";
 
 function renderLocalStorageImages() {
   const imageGalleryDiv = document.querySelector(".image-list");
 
-  const images = JSON.parse(localStorage.getItem("images")) || [];
+  const storage = JSON.parse(localStorage.getItem("storage")) || {};
+  const token = localStorage.getItem("token");
 
-  images.forEach((imageData) => {
-    imageGalleryDiv.innerHTML += template(imageData);
-  });
+  if (storage[token]) {
+    console.log(storage[token]);
+    storage[token].forEach((imageData) => {
+      imageGalleryDiv.innerHTML += template(imageData);
+    });
+  }
 }
 
 function template(imageData) {
@@ -23,6 +27,8 @@ function template(imageData) {
 
 headerLoader();
 getToken();
+const logo = document.getElementById("gotopage");
+logo.addEventListener("click",goToPage);
 renderLocalStorageImages();
 const logOutButton = document.getElementById("logOut");
 logOutButton.addEventListener("click", logOut);
@@ -43,9 +49,10 @@ function showImageOnCanvas(event) {
   const img = new Image();
   img.src = image.src;
   img.onload = function() {
-    canvas.width = img.width * 0.2;
-    canvas.height = img.height * 0.2;
-    ctx.drawImage(img, 0, 0, img.width * 0.2, img.height * 0.2);
+
+    canvas.width = img.width * 0.4;
+    canvas.height = img.height * 0.4;
+    ctx.drawImage(img, 0, 0, img.width * 0.4, img.height * 0.4);
   };
   localStorage.setItem("img", JSON.stringify(img));
   start();
@@ -54,25 +61,10 @@ function showImageOnCanvas(event) {
 let filterSelect = document.getElementById("filter-select");
 filterSelect.addEventListener("change", function() {
   let filterValue = filterSelect.value;
-  let image = JSON.parse(localStorage.getItem("src"));
 
-  if (filterValue === "none") {
-    // Remove any existing filters
-    const img = new Image();
-    img.src = image.src;
-    img.onload = function() {
-    canvas.width = img.width * 0.2;
-    canvas.height = img.height * 0.2;
-    ctx.drawImage(img, 0, 0, img.width * 0.2, img.height * 0.2);
-  };
-  } else if (filterValue === "sepia") {
-    // Apply the sepia filter
+  if (filterValue === "sepia") {
     applySepiaFilter(canvas, ctx);
   } else if (filterValue === "grayscale") {
-    // Apply the grayscale filter
     applyGrayscaleFilter(canvas, ctx);
-  }
-  
-  // // Redraw the canvas with the selected filter
-  // ctx.drawImage(image, 0, 0);
+  };
 });
