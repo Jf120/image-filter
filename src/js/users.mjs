@@ -28,7 +28,7 @@ export function signInForm() {
 
     const storedUsers = localStorage.getItem("users");
     if (!storedUsers) {
-        // handle error if no users have been registered yet
+        alert("Please register first");
         return;
     }
 
