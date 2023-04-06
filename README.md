@@ -2,7 +2,7 @@
 
 ## Description
 
-With the "sleepoutside" template as a starting point, an image filter application was created.
+A simple image filter app with a gallery for each user.
 
 ## Prerequisites
 
